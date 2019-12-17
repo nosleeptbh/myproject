@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:myproject"
+             x:Class="myproject.MainPage">
+
+    <ScrollView>
+        <StackLayout>
+            
+            <!-- Predictive searchBar -->
+            <SearchBar x:Name="searchBar"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="CenterAndExpand"
+                   Placeholder="Search Existing Contacts..."
+                   CancelButtonColor="Blue"
+                   PlaceholderColor="Blue"
+                   HorizontalTextAlignment="Start"
+                   TextChanged="OnTextChanged"/>
+
+            <ListView x:Name="searchResults"
+                  HorizontalOptions="Fill"
+                  HeightRequest="250"                  
+                  ItemSelected="OnSelection" />
+                      
+            <StackLayout Spacing="0" Padding="0" BackgroundColor="White">
+
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="100"
+                        VerticalOptions="Start" Color="White" />
+                
+                <!-- New Contact Button -->
+                <Button Text="New Contact"
+                        TextColor="Blue"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="Start"
+                        Clicked="OnButtonClicked2"  />
+                
+                <!-- Save Button -->
+                <StackLayout IsVisible="False" x:Name="saveContact">
+                    <Button Text="Save"
+                            TextColor="Blue"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="Start"
+                            Clicked="Button_Clicked" />
+
+                </StackLayout>
+
+
+
+                <!-- Contact image -->
+                <Image Source="images/contact.png" HeightRequest="200" WidthRequest="200" />
+
+                <!-- Contact name  -->
+                <StackLayout HeightRequest="100" VerticalOptions="Start" HorizontalOptions="FillAndExpand" 
+                        Spacing="20" BackgroundColor="White">
+                    <Label x:Name="AccountName" Text="John Groves " FontSize="28" HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="Center" FontAttributes="Bold" />
+
+                    <!-- Favourite button -->
+                    <Button Text="Favourite"
+                            TextColor="Blue"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="Center"
+                        Clicked="OnButtonClicked" />
+                </StackLayout>
+
+                <StackLayout HeightRequest="5" WidthRequest="300" HorizontalOptions="Center" 
+                        Spacing="20" BackgroundColor="Black">
+                </StackLayout>
+
+                <!-- New contact name -->
+                <StackLayout Orientation="Horizontal" Margin="25" IsVisible="False" x:Name="newContact">
+                    <Label FontSize="14" Text="Name:" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
+                    <Entry FontSize="14" x:Name="NewAccountName" HorizontalOptions="FillAndExpand" BackgroundColor="White" />
+                </StackLayout>
+
+                <!-- Mobile number -->
+                <StackLayout Orientation="Horizontal" Margin="25" >
+                    <Label FontSize="14" Text="Mobile:" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
+                    <Entry FontSize="14" x:Name="MobileNo" Text="0868411979" HorizontalOptions="FillAndExpand" BackgroundColor="White" />
+                </StackLayout>
+
+                <!-- Work Number -->
+                <StackLayout Orientation="Horizontal" Margin="25">
+                    <Label FontSize="14" Text="Work:" TextColor="Black"
+                            HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
+                    <Entry FontSize="14" x:Name="WorkNo" Text="0871214789" HorizontalOptions="FillAndExpand" BackgroundColor="White" />
+                </StackLayout>
+
+                <!-- Email address -->
+                <StackLayout Orientation="Horizontal" Margin="25" >
+                    <Label FontSize="14" Text="Email:" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
+                    <Entry FontSize="14" x:Name="EmailAddress" Text="johngroves@gmail.com" HorizontalOptions="FillAndExpand" BackgroundColor="White" />
+                </StackLayout>
+
+                <!-- Facebook profile-->
+                <StackLayout Orientation="Horizontal" Margin="15" >
+                    <Label FontSize="14" Text="Facebook:" TextColor="CornflowerBlue" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
+                    <Entry FontSize="14" x:Name="Facebook" Text="John Groves" HorizontalOptions="FillAndExpand" BackgroundColor="White" />
+                </StackLayout>
+
+                <!-- Instragram name -->
+                <StackLayout Orientation="Horizontal" Margin="15" >
+                    <Label FontSize="14" Text="Instagram:" TextColor="CornflowerBlue" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
+                    <Entry FontSize="14" x:Name="Instagram" Text="john99groves" HorizontalOptions="FillAndExpand" BackgroundColor="White" />
+                </StackLayout>
+
+                <!-- Snapchat name -->
+                <StackLayout Orientation="Horizontal" Margin="15" >
+                    <Label FontSize="14" Text="Snapchat:" TextColor="CornflowerBlue" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
+                    <Entry FontSize="14" x:Name="Snapchat" Text="jgroves13" HorizontalOptions="FillAndExpand" BackgroundColor="White" />
+                </StackLayout>
+
+                <StackLayout HeightRequest="5" WidthRequest="300" HorizontalOptions="Center" 
+                                 Spacing="20" BackgroundColor="Black">
+                </StackLayout>
+
+                <!-- Favourite output -->
+                <StackLayout x:Name="favourite"  IsVisible="False">
+                    <Label FontSize="20" Text="Favourites" TextColor="Black" HorizontalOptions="CenterAndExpand" 
+                           VerticalOptions="Center" FontAttributes="Bold" />
+                    <Label FontSize="15" x:Name="favouriteName" TextColor="Black" HorizontalOptions="Start" 
+                           VerticalOptions="Center"  />
+                    <Label FontSize="15" x:Name="favouriteName2" TextColor="Black" HorizontalOptions="Start" 
+                           VerticalOptions="Center"  />
+                    <Label FontSize="15" x:Name="favouriteName3" TextColor="Black" HorizontalOptions="Start" 
+                           VerticalOptions="Center"  />
+                    <Label FontSize="15" x:Name="favouriteName4" TextColor="Black" HorizontalOptions="Start" 
+                           VerticalOptions="Center"  />
+                    <Label FontSize="15" x:Name="favouriteName5" TextColor="Black" HorizontalOptions="Start" 
+                           VerticalOptions="Center"  />
+                </StackLayout>
+
+                <!-- New Contact output -->
+                <StackLayout IsVisible="False" x:Name="saved">
+                    <Label FontSize="20" Text="New Contacts" TextColor="Black" HorizontalOptions="CenterAndExpand" 
+                           VerticalOptions="Center" FontAttributes="Bold" />
+                    <Label FontSize="15" x:Name="newNumber" TextColor="Black" HorizontalOptions="Start" 
+                           VerticalOptions="Center"  />
+                    <Label FontSize="15" x:Name="newNumber2" TextColor="Black" HorizontalOptions="Start" 
+                           VerticalOptions="Center"  />
+                    <Label FontSize="15" x:Name="newNumber3" TextColor="Black" HorizontalOptions="Start" 
+                           VerticalOptions="Center"  />
+                    <Label FontSize="15" x:Name="newNumber4" TextColor="Black" HorizontalOptions="Start" 
+                           VerticalOptions="Center"  />
+                    <Label FontSize="15" x:Name="newNumber5" TextColor="Black" HorizontalOptions="Start" 
+                           VerticalOptions="Center"  />
+                </StackLayout>
+
+        </StackLayout>
+
+        </StackLayout>
+        
+    </ScrollView>
+
+</ContentPage>
